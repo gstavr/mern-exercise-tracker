@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
+import { useSearchParams } from 'react-router-dom';
+
 export default class EditExercises extends Component {
   constructor(props) {
     super(props);
-    const queryParams = new URLSearchParams(window.location.search);
 
     this.onChangeUsername = this.onChangeUsername.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -24,7 +25,7 @@ export default class EditExercises extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:5000/exercises/' + this._id)
+      .get('http://localhost:5000/exercises/' + 1) //this.props.match.params.id)
       .then((res) => {
         if (res.data.length > 0) {
           this.setState({
