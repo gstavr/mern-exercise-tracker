@@ -2,6 +2,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap';
 
 import Navbar from './components/navbar.component';
 import ExercisesList from './components/exercises-list.component';
@@ -17,7 +18,7 @@ function App() {
         <br />
         <Routes>
           <Route path='/' element={<ExercisesList />} />
-          <Route path='/edit/:id' element={<EditExercise />} />
+          <Route path='/edit/:id' element={<EditExercise path />} />
           <Route path='/create' element={<CreateExercise />} />
           <Route path='/user' element={<CreateUser />} />
         </Routes>
